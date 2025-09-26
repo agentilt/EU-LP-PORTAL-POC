@@ -1,0 +1,37 @@
+[
+  {
+    "id": "call-2024-07-10-lx-venture-i",
+    "fund_id": "lx-venture-i",
+    "type": "capital_call",
+    "title": "Capital Call Notice — 10 July 2024",
+    "call_amount": 250000,
+    "due_date": "2024-07-24",
+    "wire_reference": "LXVC-20240710-001",
+    "issuer": "Lux Fund Admin (mock)",
+    "raw_url": "/assets/sample-capital-call.pdf",
+    "created_at": "2024-07-10"
+  },
+  {
+    "id": "qr-2024-q2-lx-venture-i",
+    "fund_id": "lx-venture-i",
+    "type": "quarterly_report",
+    "title": "Quarterly Report — Q2 2024",
+    "issuer": "Lux Fund Admin (mock)",
+    "raw_url": "/assets/sample-quarterly-report.pdf",
+    "created_at": "2024-07-05"
+  },
+  {
+    "id": "call-2024-06-15-fr-climate-tech-i",
+    "fund_id": "fr-climate-tech-i",
+    "type": "capital_call",
+    "title": "Capital Call Notice — 15 June 2024",
+    "call_amount": 400000,
+    "due_date": "2024-06-30",
+    "wire_reference": "FRCL-20240615-221",
+    "issuer": "Paris Impact Admin (mock)",
+    "raw_url": "/assets/sample-capital-call.pdf",
+    "created_at": "2024-06-15"
+  }
+]
+
+

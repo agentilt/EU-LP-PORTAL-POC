@@ -1,0 +1,14 @@
+{
+  "id":"lp-acme-1",
+  "name":"Acme Family Office",
+  "jurisdiction":"NL",
+  "entity_type":"Family Office",
+  "aml_status":"Verified",
+  "documents":["kyc-acme-2023-01"],
+  "audit":[
+    {"actor":"Ops User","action":"Verified AML check","at":"2024-06-01T10:20:00Z"},
+    {"actor":"Ops User","action":"Requested update to address","at":"2024-12-01T09:00:00Z"}
+  ]
+}
+
+

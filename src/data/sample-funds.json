@@ -1,0 +1,67 @@
+[
+  {
+    "id": "lx-venture-i",
+    "name": "Lux Venture I",
+    "domicile": "Luxembourg (SCSp)",
+    "vintage": 2022,
+    "manager": "Nordic Capital Partners",
+    "commitment": 25000000,
+    "paid_in": 7500000,
+    "nav": 8200000,
+    "irr": 0.12,
+    "tvpi": 1.15,
+    "dpi": 0.08,
+    "nav_history": [
+      {"date":"2023-01-01","nav":5000000},
+      {"date":"2023-07-01","nav":6500000},
+      {"date":"2024-01-01","nav":7300000},
+      {"date":"2024-07-01","nav":8200000}
+    ],
+    "documents": ["call-2024-07-10-lx-venture-i","qr-2024-q2-lx-venture-i"],
+    "last_report_date": "2024-07-10"
+  },
+  {
+    "id": "de-growth-opportunities-ii",
+    "name": "DE Growth Opportunities II",
+    "domicile": "Germany (KG)",
+    "vintage": 2021,
+    "manager": "Rhein Invest GmbH",
+    "commitment": 15000000,
+    "paid_in": 6000000,
+    "nav": 9100000,
+    "irr": 0.15,
+    "tvpi": 1.3,
+    "dpi": 0.12,
+    "nav_history": [
+      {"date":"2023-01-01","nav":4000000},
+      {"date":"2023-07-01","nav":6000000},
+      {"date":"2024-01-01","nav":8200000},
+      {"date":"2024-07-01","nav":9100000}
+    ],
+    "documents": ["qr-2024-q2-de-growth-op-ii"],
+    "last_report_date": "2024-07-08"
+  },
+  {
+    "id": "fr-climate-tech-i",
+    "name": "FR Climate Tech I",
+    "domicile": "France (FPCI)",
+    "vintage": 2023,
+    "manager": "Paris Impact Partners",
+    "commitment": 30000000,
+    "paid_in": 9000000,
+    "nav": 8800000,
+    "irr": 0.09,
+    "tvpi": 1.1,
+    "dpi": 0.03,
+    "nav_history": [
+      {"date":"2023-01-01","nav":3000000},
+      {"date":"2023-07-01","nav":5200000},
+      {"date":"2024-01-01","nav":7800000},
+      {"date":"2024-07-01","nav":8800000}
+    ],
+    "documents": ["call-2024-06-15-fr-climate-tech-i","qr-2024-q2-fr-climate-tech-i"],
+    "last_report_date": "2024-07-12"
+  }
+]
+
+
