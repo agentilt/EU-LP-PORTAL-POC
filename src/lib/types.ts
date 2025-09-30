@@ -26,6 +26,7 @@ export type DocumentItem = {
   issuer: string;
   raw_url: string;
   created_at?: string;
+  payment_status?: "Due" | "Late" | "Paid";
 };
 
 export type KYC = {
@@ -36,6 +37,7 @@ export type KYC = {
   aml_status: "Verified" | "Needs Review";
   documents: string[];
   audit: { actor: string; action: string; at: string }[];
+  contacts?: { name: string; email: string; role: string }[];
 };
 
 export type LocaleKey = "en" | "fr" | "de";

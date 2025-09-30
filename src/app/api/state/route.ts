@@ -8,11 +8,15 @@ export async function GET() {
 
 export async function POST(req: Request) {
   const body = await req.json().catch(() => ({} as any));
-  const { scenario, locale, acknowledgeDocId, acknowledgeValue, reset, addDocument } = body || {};
+  const { scenario, locale, acknowledgeDocId, acknowledgeValue, reset, addDocument, reuseForFundId } = body || {};
   if (scenario) setScenario(scenario as Scenario);
   if (locale) setLocale(locale as LocaleKey);
   if (acknowledgeDocId) toggleAcknowledged(String(acknowledgeDocId), acknowledgeValue as boolean | undefined);
   if (addDocument) addMockDocument(addDocument as DocumentItem);
+  if (reuseForFundId) {
+    const state = getOverlayState();
+    state.reusedKycForFundId = String(reuseForFundId);
+  }
   if (reset) resetOverlay();
   return NextResponse.json(getOverlayState());
 }

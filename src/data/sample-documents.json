@@ -8,8 +8,9 @@
     "due_date": "2024-07-24",
     "wire_reference": "LXVC-20240710-001",
     "issuer": "Lux Fund Admin (mock)",
-    "raw_url": "/assets/sample-capital-call.pdf",
-    "created_at": "2024-07-10"
+    "raw_url": "/api/assets/sample-capital-call.pdf",
+    "created_at": "2024-07-10",
+    "payment_status": "Due"
   },
   {
     "id": "qr-2024-q2-lx-venture-i",
@@ -17,7 +18,7 @@
     "type": "quarterly_report",
     "title": "Quarterly Report — Q2 2024",
     "issuer": "Lux Fund Admin (mock)",
-    "raw_url": "/assets/sample-quarterly-report.pdf",
+    "raw_url": "/api/assets/sample-quarterly-report.pdf",
     "created_at": "2024-07-05"
   },
   {
@@ -29,8 +30,27 @@
     "due_date": "2024-06-30",
     "wire_reference": "FRCL-20240615-221",
     "issuer": "Paris Impact Admin (mock)",
-    "raw_url": "/assets/sample-capital-call.pdf",
-    "created_at": "2024-06-15"
+    "raw_url": "/api/assets/sample-capital-call.pdf",
+    "created_at": "2024-06-15",
+    "payment_status": "Late"
+  },
+  {
+    "id": "qr-2024-q2-de-growth-op-ii",
+    "fund_id": "de-growth-opportunities-ii",
+    "type": "quarterly_report",
+    "title": "Quarterly Report — Q2 2024",
+    "issuer": "DE Fund Admin (mock)",
+    "raw_url": "/api/assets/sample-quarterly-report.pdf",
+    "created_at": "2024-07-06"
+  },
+  {
+    "id": "qr-2024-q2-fr-climate-tech-i",
+    "fund_id": "fr-climate-tech-i",
+    "type": "quarterly_report",
+    "title": "Quarterly Report — Q2 2024",
+    "issuer": "FR Fund Admin (mock)",
+    "raw_url": "/api/assets/sample-quarterly-report.pdf",
+    "created_at": "2024-07-07"
   }
 ]
 

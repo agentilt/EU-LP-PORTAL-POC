@@ -2,8 +2,10 @@
 import { useState } from "react";
 import type { DocumentItem } from "@/lib/types";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export default function MockDataUploader() {
+  const router = useRouter();
   const [title, setTitle] = useState("");
   const [fundId, setFundId] = useState("");
   const [amount, setAmount] = useState<number | "">("");
@@ -21,7 +23,8 @@ export default function MockDataUploader() {
       raw_url: "/assets/sample-capital-call.pdf",
       created_at: new Date().toISOString().slice(0, 10),
     };
-    await fetch("/api/state", { method: "POST", body: JSON.stringify({ addDocument: doc }) });
+    await fetch("/api/state", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ addDocument: doc }) });
+    router.refresh();
     toast.success("Mock document added");
     setTitle(""); setFundId(""); setAmount("");
   };

@@ -6,15 +6,16 @@ import { absoluteUrl } from "@/lib/server";
 import { notFound } from "next/navigation";
 
 async function getFund(id: string): Promise<Fund | null> {
-  const res = await fetch(absoluteUrl(`/api/funds/${id}`), { cache: "no-store" });
+  const res = await fetch(await absoluteUrl(`/api/funds/${id}`), { cache: "no-store" });
   if (!res.ok) return null;
   return res.json();
 }
 
-type Params = { params: { id: string } };
+type Params = { params: Promise<{ id: string }> };
 
 export default async function FundPage({ params }: Params) {
-  const fund = await getFund(params.id);
+  const { id } = await params;
+  const fund = await getFund(id);
   if (!fund) return notFound();
   return (
     <div className="min-h-screen">

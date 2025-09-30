@@ -8,6 +8,10 @@
   "audit":[
     {"actor":"Ops User","action":"Verified AML check","at":"2024-06-01T10:20:00Z"},
     {"actor":"Ops User","action":"Requested update to address","at":"2024-12-01T09:00:00Z"}
+  ],
+  "contacts":[
+    {"name":"Marie Curie","email":"marie@acme.fo","role":"Authorized Signatory"},
+    {"name":"Luca Rossi","email":"luca@acme.fo","role":"Operations"}
   ]
 }
 

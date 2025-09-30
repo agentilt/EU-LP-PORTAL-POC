@@ -2,10 +2,13 @@
 import type { DocumentItem } from "@/lib/types";
 import { formatCurrency, formatDate } from "@/lib/format";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export default function ParsedDocument({ doc }: { doc: DocumentItem }) {
+  const router = useRouter();
   const acknowledge = async () => {
-    await fetch("/api/state", { method: "POST", body: JSON.stringify({ acknowledgeDocId: doc.id }) });
+    await fetch("/api/state", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ acknowledgeDocId: doc.id }) });
+    router.refresh();
     toast.success("Acknowledged");
   };
   return (

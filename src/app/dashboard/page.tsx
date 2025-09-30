@@ -6,7 +6,7 @@ import { formatCurrency } from "@/lib/format";
 import { absoluteUrl } from "@/lib/server";
 
 async function getFunds(): Promise<Fund[]> {
-  const res = await fetch(absoluteUrl("/api/funds"), { cache: "no-store" });
+  const res = await fetch(await absoluteUrl("/api/funds"), { cache: "no-store" });
   return res.json();
 }
 

@@ -7,13 +7,13 @@ import MockDataUploader from "@/components/MockDataUploader";
 
 async function getData(): Promise<{ funds: Fund[]; docs: DocumentItem[] }> {
   const [fr, dr] = await Promise.all([
-    fetch(absoluteUrl("/api/funds"), { cache: "no-store" }),
-    fetch(absoluteUrl("/api/state"), { cache: "no-store" }),
+    fetch(await absoluteUrl("/api/funds"), { cache: "no-store" }),
+    fetch(await absoluteUrl("/api/state"), { cache: "no-store" }),
   ]);
   const funds: Fund[] = await fr.json();
   const state = await dr.json();
   const docsRes = await Promise.all(
-    funds.flatMap((f) => f.documents).map((id) => fetch(absoluteUrl(`/api/documents/${id}`), { cache: "no-store" }))
+    funds.flatMap((f) => f.documents).map(async (id) => fetch(await absoluteUrl(`/api/documents/${id}`), { cache: "no-store" }))
   );
   const docs = (await Promise.all(docsRes.map(async (r) => (r.ok ? r.json() : null)))).filter(Boolean) as DocumentItem[];
   return { funds, docs };
@@ -23,7 +23,7 @@ export default async function DemoPage() {
   const { funds, docs } = await getData();
   async function resetState() {
     "use server";
-    await fetch(absoluteUrl("/api/state"), { method: "POST", body: JSON.stringify({ reset: true }) });
+    await fetch(await absoluteUrl("/api/state"), { method: "POST", body: JSON.stringify({ reset: true }) });
   }
   return (
     <div className="min-h-screen">

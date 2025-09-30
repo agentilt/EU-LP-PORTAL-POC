@@ -70,12 +70,14 @@ export async function loadDocuments(): Promise<DocumentItem[]> {
 }
 
 export async function loadDocumentById(id: string): Promise<DocumentItem | undefined> {
-  // Simulate missing-doc scenario
-  if (overlay.scenario === "missing-doc") {
-    return undefined;
-  }
   const docs = await loadDocuments();
-  return docs.find((d) => d.id === id);
+  const found = docs.find((d) => d.id === id);
+  if (!found) return undefined;
+  // Simulate occasional 404 in missing-doc scenario (about 40% of requests)
+  if (overlay.scenario === "missing-doc") {
+    if (Math.random() < 0.4) return undefined;
+  }
+  return found;
 }
 
 export async function loadKyc(): Promise<KYC> {
