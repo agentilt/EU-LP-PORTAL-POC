@@ -36,7 +36,7 @@ export default function FundDetail({ fund }: { fund: Fund }) {
           <div className="rounded-lg border p-4 h-64 animate-pulse bg-black/5 dark:bg-white/5" />
         ) : doc ? (
           <div className="rounded-lg border p-4">
-            <ParsedDocument doc={doc} />
+            <ParsedDocument doc={doc} fundName={fund.name} />
           </div>
         ) : (
           <div className="rounded-lg border p-4 text-sm text-black/60 dark:text-white/60">{error ?? "Document missing in this scenario."}</div>
