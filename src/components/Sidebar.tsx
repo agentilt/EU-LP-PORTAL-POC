@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LayoutDashboard, FileText, UserSquare2, FlaskConical } from "lucide-react";
+import { LayoutDashboard, UserSquare2, FlaskConical } from "lucide-react";
 
 export default function Sidebar() {
   return (

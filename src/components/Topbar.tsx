@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { Languages, Globe, Bell, Moon, Sun } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { i18nStrings } from "@/lib/mock";
 import type { LocaleKey, Scenario } from "@/lib/types";
 import { toast } from "sonner";
 
@@ -34,7 +33,7 @@ export function Topbar() {
     };
   }, []);
 
-  const notify = (detail: any) => {
+  const notify = (detail: Record<string, unknown>) => {
     if (typeof window !== "undefined") {
       window.dispatchEvent(new CustomEvent("overlay-change", { detail }));
     }

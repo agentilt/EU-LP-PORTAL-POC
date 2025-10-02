@@ -47,7 +47,7 @@ export default function ParsedDocument({ doc, fundName }: { doc: DocumentItem; f
     return () => {
       canceled = true;
     };
-  }, [doc.id, doc.wire_reference, doc.raw_url, doc.fund_id]);
+  }, [doc.id, doc.wire_reference, doc.raw_url, doc.fund_id, doc.title, doc.type, fundName]);
   const acknowledge = async () => {
     await fetch("/api/state", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ acknowledgeDocId: doc.id }) });
     router.refresh();

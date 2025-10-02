@@ -7,7 +7,17 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  const body = await req.json().catch(() => ({} as any));
+  type StateBody = {
+    scenario?: Scenario;
+    locale?: LocaleKey;
+    acknowledgeDocId?: string;
+    acknowledgeValue?: boolean;
+    reset?: boolean;
+    addDocument?: DocumentItem;
+    reuseForFundId?: string;
+  };
+  const raw = await req.json().catch(() => ({}));
+  const body = raw as Partial<StateBody>;
   const { scenario, locale, acknowledgeDocId, acknowledgeValue, reset, addDocument, reuseForFundId } = body || {};
   if (scenario) setScenario(scenario as Scenario);
   if (locale) setLocale(locale as LocaleKey);

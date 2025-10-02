@@ -11,7 +11,7 @@ async function getData(): Promise<{ funds: Fund[]; docs: DocumentItem[] }> {
     fetch(await absoluteUrl("/api/state"), { cache: "no-store" }),
   ]);
   const funds: Fund[] = await fr.json();
-  const state = await dr.json();
+  await dr.json();
   const docsRes = await Promise.all(
     funds.flatMap((f) => f.documents).map(async (id) => fetch(await absoluteUrl(`/api/documents/${id}`), { cache: "no-store" }))
   );
