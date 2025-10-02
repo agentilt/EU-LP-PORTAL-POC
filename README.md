@@ -1,5 +1,11 @@
 EuroVC Portal — PoC is a frontend-only Next.js app demonstrating a unified LP/VC portal UI with believable mock data.
 
+### Deploying to Vercel
+
+1) Push this repo to GitHub (already done), then click "New Project" in Vercel and import the repo.
+2) Use defaults (Framework: Next.js). Build command: `npm run build`. No special env needed.
+3) After deploy, open the URL and run the demo.
+
 ### Getting started
 
 1. Install dependencies
