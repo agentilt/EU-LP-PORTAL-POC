@@ -1,0 +1,15 @@
+{
+  "wallets": [
+    { "address": "0xABCD...1234", "chain": "ethereum", "label": "Main Wallet" },
+    { "address": "0x9999...eeee", "chain": "polygon", "label": "Ops Wallet" }
+  ],
+  "holdings": [
+    { "wallet": "0xABCD...1234", "chain": "ethereum", "symbol": "USDC", "name": "USD Coin", "amount": 25000, "priceUsd": 1, "valueUsd": 25000, "category": "stablecoin" },
+    { "wallet": "0xABCD...1234", "chain": "ethereum", "symbol": "ETH", "name": "Ether", "amount": 12.5, "priceUsd": 3200, "valueUsd": 40000, "category": "bluechip" },
+    { "wallet": "0x9999...eeee", "chain": "polygon", "symbol": "USDC", "name": "USD Coin", "amount": 15000, "priceUsd": 1, "valueUsd": 15000, "category": "stablecoin" },
+    { "wallet": "0x9999...eeee", "chain": "polygon", "symbol": "MATIC", "name": "Polygon", "amount": 5000, "priceUsd": 0.7, "valueUsd": 3500, "category": "bluechip" }
+  ],
+  "asOf": "2025-09-30T12:00:00Z"
+}
+
+
