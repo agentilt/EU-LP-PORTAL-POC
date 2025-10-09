@@ -4,18 +4,27 @@ import FundCard from "@/components/FundCard";
 import type { Fund } from "@/lib/types";
 import { formatCurrency } from "@/lib/format";
 import { absoluteUrl } from "@/lib/server";
+import Link from "next/link";
 
 async function getFunds(): Promise<Fund[]> {
   const res = await fetch(await absoluteUrl("/api/funds"), { cache: "no-store" });
   return res.json();
 }
 
+type CryptoSummary = { holdings: Array<{ valueUsd: number }> };
+
+async function getCryptoPortfolio(): Promise<CryptoSummary> {
+  const res = await fetch(await absoluteUrl("/api/crypto/holdings"), { cache: "no-store" });
+  return res.json();
+}
+
 export default async function DashboardPage() {
-  const funds = await getFunds();
+  const [funds, crypto] = await Promise.all([getFunds(), getCryptoPortfolio()]);
   const totalCommitment = funds.reduce((a, f) => a + f.commitment, 0);
   const totalNav = funds.reduce((a, f) => a + f.nav, 0);
   const activeCalls = funds.filter((f) => f.documents.some((d) => d.includes("call"))).length;
   const tvpi = funds.length ? (funds.reduce((a, f) => a + f.tvpi, 0) / funds.length) : 0;
+  const cryptoTotal = crypto.holdings.reduce((a, h) => a + h.valueUsd, 0);
 
   return (
     <div className="min-h-screen">
@@ -29,6 +38,14 @@ export default async function DashboardPage() {
             <div className="rounded-lg border p-4"><div className="text-xs text-black/60 dark:text-white/60">Portfolio TVPI</div><div className="text-lg font-semibold">{tvpi.toFixed(2)}x</div></div>
             <div className="rounded-lg border p-4"><div className="text-xs text-black/60 dark:text-white/60">Active Capital Calls</div><div className="text-lg font-semibold">{activeCalls}</div></div>
           </div>
+          <section>
+            <h2 className="text-sm font-semibold mb-3">Crypto (Demo)</h2>
+            <Link href="/crypto" className="rounded-lg border p-4 block hover:bg-black/5 dark:hover:bg-white/10">
+              <div className="text-xs text-black/60 dark:text-white/60">Total Crypto Value</div>
+              <div className="text-lg font-semibold">{formatCurrency(cryptoTotal)}</div>
+              <div className="text-xs mt-1 text-black/60 dark:text-white/60">View details</div>
+            </Link>
+          </section>
           <section>
             <h2 className="text-sm font-semibold mb-3">Funds</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
