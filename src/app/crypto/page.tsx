@@ -1,8 +1,13 @@
 import Topbar from "@/components/Topbar";
 import Sidebar from "@/components/Sidebar";
 import CryptoPortfolio from "@/components/CryptoPortfolio";
-import type { CryptoPortfolio as CryptoPortfolioType } from "@/lib/types";
 import { absoluteUrl } from "@/lib/server";
+
+type CryptoPortfolioType = {
+  wallets: { address: string; chain: string; label?: string }[];
+  holdings: Array<{ wallet: string; chain: string; symbol: string; name: string; amount: number; priceUsd: number; valueUsd: number; category: "stablecoin" | "bluechip" | "defi" | "other" }>;
+  asOf: string;
+};
 
 async function getPortfolio(): Promise<CryptoPortfolioType> {
   const res = await fetch(await absoluteUrl("/api/crypto/holdings"), { cache: "no-store" });

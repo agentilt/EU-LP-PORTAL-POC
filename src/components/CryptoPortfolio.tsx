@@ -1,9 +1,8 @@
 "use client";
 import { useMemo } from "react";
-import type { CryptoPortfolio as CryptoPortfolioType } from "@/lib/types";
 import { formatCurrency } from "@/lib/format";
 
-type Props = { portfolio: CryptoPortfolioType };
+type Props = { portfolio: { wallets: { address: string; chain: string; label?: string }[]; holdings: Array<{ wallet: string; chain: string; symbol: string; name: string; amount: number; priceUsd: number; valueUsd: number; category: "stablecoin" | "bluechip" | "defi" | "other" }>; asOf: string } };
 
 export default function CryptoPortfolio({ portfolio }: Props) {
   const totals = useMemo(() => {
