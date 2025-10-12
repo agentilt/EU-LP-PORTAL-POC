@@ -24,7 +24,7 @@ async function toPdf(funds: Fund[]): Promise<Uint8Array> {
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
   const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
-  let x = 40; let y = 800; const leading = 16;
+  const x = 40; let y = 800; const leading = 16;
   page.drawText("Funds Export", { x, y, size: 14, font: fontBold });
   y -= 24;
 
