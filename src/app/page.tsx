@@ -11,15 +11,16 @@ export default function Home() {
           <p className="text-black/70 dark:text-white/70">EuroLP Portal — PoC showcases a unified LP/VC portal with an aggregated view across all your funds. No real backend — believable mock data only.</p>
           <div className="flex gap-3">
             <Link href="/dashboard" className="rounded-md border px-4 py-2 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/10">Enter demo</Link>
-            <Link href="/kyc" className="rounded-md border px-4 py-2 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/10">KYC</Link>
+            <Link href="/advisor" className="rounded-md border px-4 py-2 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/10">Advisor</Link>
           </div>
         </div>
         <div className="rounded-xl border p-6">
           <ul className="list-disc pl-5 text-sm space-y-2">
             <li>Dashboard with KPIs and multi-fund cards</li>
-            <li>Fund detail: parsed call/report and NAV mini-chart</li>
-            <li>KYC: reusable profile with audit trail</li>
-            <li>Demo controls: scenarios, notifications, reset</li>
+            <li>Fund detail: parsed documents and NAV chart with timeline</li>
+            <li>Drag & drop document upload functionality</li>
+            <li>Advisor view: filter & export funds data</li>
+            <li>Light/dark mode toggle</li>
           </ul>
         </div>
       </main>
