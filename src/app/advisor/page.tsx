@@ -1,7 +1,6 @@
 import Topbar from "@/components/Topbar";
 import Sidebar from "@/components/Sidebar";
 import AdvisorFunds from "@/components/AdvisorFunds";
-import DragDropDemo from "@/components/DragDropDemo";
 import type { Fund } from "@/lib/types";
 import { absoluteUrl } from "@/lib/server";
 
@@ -19,15 +18,6 @@ export default async function AdvisorPage() {
         <Sidebar />
         <main className="space-y-6">
           <h1 className="text-base font-semibold">Advisor — Filter & Export</h1>
-          
-          <div className="rounded-lg border p-4">
-            <h2 className="text-sm font-semibold mb-3">Document Upload (Demo Feature)</h2>
-            <p className="text-xs text-gray-600 dark:text-gray-400 mb-4">
-              The final product will support drag & drop for uploading capital calls, quarterly reports, and KYC documents.
-            </p>
-            <DragDropDemo />
-          </div>
-
           <AdvisorFunds initialFunds={funds} />
         </main>
       </div>
