@@ -1,6 +1,7 @@
 import Topbar from "@/components/Topbar";
 import Sidebar from "@/components/Sidebar";
 import FundCard from "@/components/FundCard";
+import DragDropDemo from "@/components/DragDropDemo";
 import type { Fund } from "@/lib/types";
 import { formatCurrency } from "@/lib/format";
 import { absoluteUrl } from "@/lib/server";
@@ -38,6 +39,15 @@ export default async function DashboardPage() {
             <div className="rounded-lg border p-4"><div className="text-xs text-black/60 dark:text-white/60">Portfolio TVPI</div><div className="text-lg font-semibold">{tvpi.toFixed(2)}x</div></div>
             <div className="rounded-lg border p-4"><div className="text-xs text-black/60 dark:text-white/60">Active Capital Calls</div><div className="text-lg font-semibold">{activeCalls}</div></div>
           </div>
+          
+          <section className="rounded-lg border p-4">
+            <h2 className="text-sm font-semibold mb-3">Document Upload (Demo Feature)</h2>
+            <p className="text-xs text-gray-600 dark:text-gray-400 mb-4">
+              The final product will support drag & drop for uploading capital calls, quarterly reports, and KYC documents.
+            </p>
+            <DragDropDemo />
+          </section>
+
           <section>
             <h2 className="text-sm font-semibold mb-3">Crypto (Demo)</h2>
             <Link href="/crypto" className="rounded-lg border p-4 block hover:bg-black/5 dark:hover:bg-white/10">

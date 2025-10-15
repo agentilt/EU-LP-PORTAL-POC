@@ -44,14 +44,53 @@ export default function FundDetail({ fund }: { fund: Fund }) {
       </div>
       <div className="space-y-4">
         <div className="rounded-lg border p-4">
-          <h4 className="text-sm font-semibold mb-2">NAV</h4>
-          <div className="h-40">
+          <h4 className="text-sm font-semibold mb-2">NAV Over Time</h4>
+          <div className="h-48">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={fund.nav_history}>
-                <XAxis dataKey="date" hide />
-                <YAxis hide domain={["dataMin", "dataMax"]} />
-                <Tooltip formatter={(v) => formatCurrency(Number(v))} />
-                <Line type="monotone" dataKey="nav" stroke="#3b82f6" strokeWidth={2} dot={false} />
+                <XAxis 
+                  dataKey="date" 
+                  tick={{ fontSize: 11 }}
+                  tickFormatter={(value) => {
+                    const date = new Date(value);
+                    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+                  }}
+                />
+                <YAxis 
+                  tick={{ fontSize: 11 }}
+                  tickFormatter={(value) => {
+                    if (value >= 1000000) return `€${(value / 1000000).toFixed(1)}M`;
+                    if (value >= 1000) return `€${(value / 1000).toFixed(0)}K`;
+                    return `€${value}`;
+                  }}
+                />
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '0.375rem',
+                    fontSize: '12px'
+                  }}
+                  labelFormatter={(label) => {
+                    const date = new Date(label);
+                    return date.toLocaleDateString('en-US', { 
+                      year: 'numeric', 
+                      month: 'long', 
+                      day: 'numeric',
+                      hour: '2-digit',
+                      minute: '2-digit'
+                    });
+                  }}
+                  formatter={(value) => [formatCurrency(Number(value)), 'NAV']}
+                />
+                <Line 
+                  type="monotone" 
+                  dataKey="nav" 
+                  stroke="#3b82f6" 
+                  strokeWidth={2} 
+                  dot={{ r: 4, fill: '#3b82f6' }}
+                  activeDot={{ r: 6 }}
+                />
               </LineChart>
             </ResponsiveContainer>
           </div>
