@@ -52,8 +52,12 @@ export default function FundDetail({ fund }: { fund: Fund }) {
                   dataKey="date" 
                   tick={{ fontSize: 11 }}
                   tickFormatter={(value) => {
-                    const date = new Date(value);
-                    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+                    try {
+                      const date = new Date(value);
+                      return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+                    } catch {
+                      return value;
+                    }
                   }}
                 />
                 <YAxis 
@@ -72,14 +76,16 @@ export default function FundDetail({ fund }: { fund: Fund }) {
                     fontSize: '12px'
                   }}
                   labelFormatter={(label) => {
-                    const date = new Date(label);
-                    return date.toLocaleDateString('en-US', { 
-                      year: 'numeric', 
-                      month: 'long', 
-                      day: 'numeric',
-                      hour: '2-digit',
-                      minute: '2-digit'
-                    });
+                    try {
+                      const date = new Date(String(label));
+                      return date.toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric'
+                      });
+                    } catch {
+                      return String(label);
+                    }
                   }}
                   formatter={(value) => [formatCurrency(Number(value)), 'NAV']}
                 />
